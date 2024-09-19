@@ -16,6 +16,7 @@
             font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* Evite les défilements horizontaux non désirés */
         }
 
         /* Bande blanche fixe */
@@ -26,9 +27,9 @@
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 1000; /* Reste au-dessus de tout */
+            z-index: 1000;
             text-align: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Une légère ombre pour séparer visuellement la bande du reste */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         /* Bouton dans la bande blanche */
@@ -41,12 +42,16 @@
             border-radius: 5px;
         }
 
-        /* Contenu Sway avec ajustement de la hauteur */
+        /* Sway iframe */
         iframe {
             width: 100%;
-            height: calc(100vh - 100px); /* Hauteur de l'écran moins la place de la bande blanche */
+            height: 100vh; /* Occupe tout l'espace vertical */
             border: none;
-            margin-top: 100px; /* Pour éviter que le Sway ne soit caché sous la bande blanche */
+        }
+
+        /* Espace en haut pour décaler le Sway */
+        .spacer {
+            height: 100px; /* Correspond à la hauteur de la bande blanche */
         }
     </style>
 </head>
@@ -56,9 +61,12 @@
     <div class="header">
         <a href="https://outlook.office365.com/owa/calendar/BookingwithMathilde@dvag02.onmicrosoft.com/bookings/" target="_blank" 
            class="fixed-button">
-           Réservez maintenant
+           Prenez rendez-vous maintenant
         </a>
     </div>
+
+    <!-- Espace pour décaler le Sway sous la bande blanche -->
+    <div class="spacer"></div>
 
     <!-- Contenu principal : Sway -->
     <iframe src="https://sway.office.com/s/RL4LrKGc4IdVjEGe/embed"></iframe>
