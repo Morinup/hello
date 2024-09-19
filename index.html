@@ -43,26 +43,26 @@
             display: inline-block;
         }
 
-        /* Espacement pour que le contenu ne soit pas caché sous la bande blanche */
+        /* Espace pour que le contenu ne soit pas caché sous la bande blanche */
         .spacer {
             height: 100px;
         }
 
-        /* Conteneur pour tronquer le haut de l'iframe */
+        /* Conteneur pour tronquer légèrement le haut de l'iframe */
         .iframe-container {
             width: 100%;
             height: calc(100vh - 100px); /* Hauteur totale de la fenêtre visible moins la bande blanche */
-            overflow: hidden; /* Masque le contenu dépassant du conteneur */
+            overflow: hidden; /* Masque le contenu au-delà de ce conteneur */
             position: relative;
         }
 
         /* Sway iframe */
         iframe {
             width: 100%;
-            height: calc(100vh + 50px); /* Ajuste la hauteur de l'iframe pour "tirer" vers le haut */
+            height: 100%; /* Utilise 100% de la hauteur du conteneur */
             border: none;
             position: relative;
-            top: -50px; /* Tronque 50px du haut de l'iframe */
+            top: -30px; /* Tronque 30px du haut sans changer la hauteur du bas */
         }
 
         /* Media queries pour ajuster le style sur les petits écrans */
@@ -81,8 +81,7 @@
             }
 
             iframe {
-                height: calc(100vh + 50px);
-                top: -50px; /* Même effet de troncature pour mobile */
+                top: -30px; /* Tronquer 30px du haut pour mobile aussi */
             }
         }
 
