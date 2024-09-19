@@ -43,17 +43,26 @@
             display: inline-block;
         }
 
-        /* Espace pour que le contenu ne soit pas caché sous la bande blanche */
+        /* Espacement pour que le contenu ne soit pas caché sous la bande blanche */
         .spacer {
             height: 100px;
+        }
+
+        /* Conteneur pour tronquer le haut de l'iframe */
+        .iframe-container {
+            width: 100%;
+            height: calc(100vh - 100px); /* Hauteur totale de la fenêtre visible moins la bande blanche */
+            overflow: hidden; /* Masque le contenu dépassant du conteneur */
+            position: relative;
         }
 
         /* Sway iframe */
         iframe {
             width: 100%;
-            height: calc(100vh - 100px); /* Ajustement pour utiliser toute la hauteur de l'écran */
+            height: calc(100vh + 50px); /* Ajuste la hauteur de l'iframe pour "tirer" vers le haut */
             border: none;
-            transform: translateY(-40px); /* Translation de 40px pour tronquer un peu plus le haut */
+            position: relative;
+            top: -50px; /* Tronque 50px du haut de l'iframe */
         }
 
         /* Media queries pour ajuster le style sur les petits écrans */
@@ -67,9 +76,13 @@
                 height: 100px; /* Ajuster l'espace pour mobile */
             }
 
+            .iframe-container {
+                height: calc(100vh - 100px); /* Ajuster la hauteur pour mobile */
+            }
+
             iframe {
-                height: calc(100vh - 100px); /* Hauteur ajustée pour mobile */
-                transform: translateY(-40px); /* Même translation pour mobile */
+                height: calc(100vh + 50px);
+                top: -50px; /* Même effet de troncature pour mobile */
             }
         }
 
@@ -88,8 +101,10 @@
     <!-- Espace pour décaler le Sway sous la bande blanche -->
     <div class="spacer"></div>
 
-    <!-- Contenu principal : Sway -->
-    <iframe src="https://sway.office.com/s/RL4LrKGc4IdVjEGe/embed"></iframe>
+    <!-- Conteneur pour tronquer le haut du Sway -->
+    <div class="iframe-container">
+        <iframe src="https://sway.office.com/s/RL4LrKGc4IdVjEGe/embed"></iframe>
+    </div>
 
 </body>
 </html>
