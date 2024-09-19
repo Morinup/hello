@@ -43,15 +43,15 @@
             display: inline-block;
         }
 
-        /* Espacement pour éviter que le Sway ne soit caché sous la bande blanche */
+        /* Espacement pour que le contenu ne soit pas caché sous la bande blanche */
         .spacer {
-            height: 120px; /* Espace ajusté pour tenir compte de la bande sur mobile */
+            height: 100px;
         }
 
         /* Sway iframe */
         iframe {
             width: 100%;
-            height: calc(100vh - 120px); /* Hauteur ajustée pour laisser de la place à la bande blanche */
+            height: calc(100vh - 100px); /* Ajustement pour utiliser toute la hauteur de l'écran */
             border: none;
         }
 
@@ -70,6 +70,14 @@
                 height: calc(100vh - 100px); /* Hauteur ajustée pour mobile */
             }
         }
+
+        @media only screen and (max-height: 700px) {
+            /* Gérer les écrans avec une hauteur plus faible */
+            iframe {
+                height: calc(100vh - 80px); /* Ajuster pour les écrans à faible hauteur */
+            }
+        }
+
     </style>
 </head>
 <body>
