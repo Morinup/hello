@@ -18,40 +18,50 @@
             padding: 0;
         }
 
-        /* Style pour le bouton fixe */
-        .fixed-button {
+        /* Bande blanche fixe */
+        .header {
+            background-color: white;
+            padding: 20px 0;
+            width: 100%;
             position: fixed;
-            top: 20px; /* Vous pouvez ajuster la position verticale */
-            left: 50%;
-            transform: translateX(-50%);
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Reste au-dessus de tout */
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Une légère ombre pour séparer visuellement la bande du reste */
+        }
+
+        /* Bouton dans la bande blanche */
+        .fixed-button {
             background-color: #FFA500;
             color: white;
             padding: 15px 30px;
             text-decoration: none;
             font-size: 18px;
             border-radius: 5px;
-            z-index: 1000; /* S'assurer que le bouton reste au-dessus de l'iframe */
         }
 
-        /* Assurer une bonne gestion de la hauteur de l'iframe */
+        /* Contenu Sway avec ajustement de la hauteur */
         iframe {
             width: 100%;
-            height: calc(100vh - 80px); /* Hauteur de l'écran moins la place du bouton */
+            height: calc(100vh - 100px); /* Hauteur de l'écran moins la place de la bande blanche */
             border: none;
+            margin-top: 100px; /* Pour éviter que le Sway ne soit caché sous la bande blanche */
         }
-
     </style>
 </head>
 <body>
     
-    <!-- Bouton de prise de rendez-vous avec style "fixed" -->
-    <a href="https://outlook.office365.com/owa/calendar/BookingwithMathilde@dvag02.onmicrosoft.com/bookings/" target="_blank" 
-       class="fixed-button">
-       Prenez rendez-vous maintenant
-    </a>
+    <!-- Bande blanche fixe avec le bouton -->
+    <div class="header">
+        <a href="https://outlook.office365.com/owa/calendar/BookingwithMathilde@dvag02.onmicrosoft.com/bookings/" target="_blank" 
+           class="fixed-button">
+           Réservez maintenant
+        </a>
+    </div>
 
     <!-- Contenu principal : Sway -->
-    <iframe src="https://sway.office.com/s/JQLvgrfdfwTPjUr2/embed"></iframe>
+    <iframe src="https://sway.office.com/s/RL4LrKGc4IdVjEGe/embed"></iframe>
 
 </body>
 </html>
