@@ -59,7 +59,7 @@
         /* Sway iframe */
         iframe {
             width: 100%;
-            height: 100%; /* Utilise 100% de la hauteur du conteneur */
+            height: calc(100% + 40px); /* Augmente la hauteur de 40px pour compenser la troncature */
             border: none;
             position: relative;
             top: -40px; /* Tronque 40px (1 cm) du haut sans changer la hauteur du bas */
@@ -81,6 +81,7 @@
             }
 
             iframe {
+                height: calc(100% + 40px); /* Augmente la hauteur de 40px pour compenser */
                 top: -40px; /* Tronquer 40px du haut pour mobile aussi */
             }
         }
